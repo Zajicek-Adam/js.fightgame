@@ -5,20 +5,13 @@ const keys = {
     d: {
         pressed: false
     },
-    w: {
-        pressed: false
-    },
     ArrowLeft: {
         pressed: false
     },
     ArrowRight: {
         pressed: false
-    },
-    ArrowUp: {
-        pressed: false
     }
 }
-const jumpForce = -20
 
 window.addEventListener('keydown', e => {
     switch (e.key) {
@@ -31,10 +24,8 @@ window.addEventListener('keydown', e => {
             keys.d.pressed = true
             player.lastPressedKey = e.key
             break;
-        case 'w':
-            if(player.velocity.y != 0)
-                break;
-            player.velocity.y = jumpForce
+        case ' ':
+            player.attacking = true
             break;
         //player 2
         case 'ArrowLeft':
@@ -45,11 +36,14 @@ window.addEventListener('keydown', e => {
             keys.ArrowRight.pressed = true
             player2.lastPressedKey = e.key
             break;
-        case 'ArrowUp':
-            if(player2.velocity.y != 0)
-                break;
-            player2.velocity.y = jumpForce
+        case 'Enter':
+            player2.attacking = true;
             break;
+        case 'r':
+            if (isOver) {
+                Initialize();
+            }
+            break
     }
 })
 window.addEventListener('keyup', e => {

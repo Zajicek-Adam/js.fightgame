@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,26 @@
     <script defer src="controller.js"></script>
     <script defer src="sprite_class.js"></script>
     <script defer src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Fighting game</title>
 </head>
+
 <body>
-    <canvas></canvas>
+    <header>
+        <div>Player 1<p id="player-wins">0</p><div class="bar"><span id="player" class="slider"></span></div>
+        </div>
+        <div>Player 2<p id="player1-wins">0</p><div class="bar"><span id="player2" class="slider"></span></div>
+        </div>
+    </header>
+    <div class="canvas-container">
+        <canvas></canvas>
+    </div>
+    <div id="game-over">
+        <div id="winner-text">Player 1 wins <br> Press Enter to restart</div>
+    </div>
 </body>
+
 </html>

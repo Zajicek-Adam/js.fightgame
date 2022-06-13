@@ -1,26 +1,37 @@
 class Sprite {
-    constructor({position, velocity, color}){
+    constructor({position, velocity, color, offset}){
         this.position = position
         this.velocity = velocity
+        this.width = 50
         this.height = 150
         this.lastPressedKey
         this.attackHitBox = {
-            position: this.position,
+            position: {
+                x: this.position.x,
+                y: this.position.y
+            },
+            offset, 
             width: 100,
             height: 50,
         }
         this.color = color
+        this.attacking = false
+        this.hp = 100
     }
     render(){
         context.fillStyle = this.color
-        context.fillRect(this.position.x, this.position.y, 50, this.height)
+        context.fillRect(this.position.x, this.position.y, this.width, this.height)
 
         //attack hitbox
-        context.fillStyle = 'blue'
-        context.fillRect(this.attackHitBox.position.x, this.attackHitBox.position.y, this.attackHitBox.width, this.attackHitBox.height)
+        if(this.attacking){
+            context.fillStyle = 'blue'
+            context.fillRect(this.attackHitBox.position.x, this.attackHitBox.position.y, this.attackHitBox.width, this.attackHitBox.height)    
+        }
     }
     update(){
         this.render()
+        this.attackHitBox.position.x = this.position.x + this.attackHitBox.offset.x;
+        this.attackHitBox.position.y = this.position.y;
 
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
@@ -30,5 +41,8 @@ class Sprite {
         else{
             this.velocity.y += gravity
         }
+    }
+    attack(){
+        this.attacking = true
     }
 }
