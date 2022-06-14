@@ -5,14 +5,20 @@ const player2hp = document.getElementById('player2')
 const playerw = document.getElementById('player-wins')
 const player2w = document.getElementById('player1-wins')
 
-const gameover = document.getElementById('game-over');
+const gameover = document.getElementById('game-over')
 const winnerText = document.getElementById('winner-text')
 
 const context = canvas.getContext('2d')
 const movementSpeed = 5
 const gravity = 0.7
-const damage = 15;
-let isOver = false;
+const damage = 15
+let isOver = false
+
+let playerimg = new Image()
+let player2img = new Image()
+
+playerimg.src = '/img/idle.png'
+player2img.src = '/img/idle2.png'
 
 const player = new Sprite({
     position: {

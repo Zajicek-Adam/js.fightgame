@@ -1,8 +1,8 @@
 class Sprite {
-    constructor({position, velocity, color, offset}){
+    constructor({position, velocity, img, offset}){
         this.position = position
         this.velocity = velocity
-        this.width = 50
+        this.width = 100
         this.height = 150
         this.lastPressedKey
         this.attackHitBox = {
@@ -14,13 +14,13 @@ class Sprite {
             width: 100,
             height: 50,
         }
-        this.color = color
         this.attacking = false
         this.hp = 100
     }
     render(){
-        context.fillStyle = this.color
+        context.fillStyle = 'transparent'
         context.fillRect(this.position.x, this.position.y, this.width, this.height)
+        context.drawImage(playerimg, this.position.x, this.position.y, this.width, this.height)
 
         //attack hitbox
         if(this.attacking){
