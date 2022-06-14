@@ -33,7 +33,7 @@ const player = new Sprite({
         x: 0,
         y: 0
     },
-    color: 'red'
+    img: 1
 });
 const player2 = new Sprite({
     position: {
@@ -48,7 +48,7 @@ const player2 = new Sprite({
         x: -50,
         y: 0
     },
-    color: 'green'
+    img: 2
 });
 
 function Collision({ rectangle, rectangle1 }) {
