@@ -156,7 +156,7 @@ function Initialize() {
         y: 100
     }
     player2.position = {
-        x: 980,
+        x: 920,
         y: 100
     }
     isOver = false;

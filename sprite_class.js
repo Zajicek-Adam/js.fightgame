@@ -51,7 +51,6 @@ class Sprite {
                     player2img.src = '/img/idle2.png'
                     player2.width = 100
                     player2.position.x += 100
-                    player2CanAttack = true
                 }, 300)
             }
         }
